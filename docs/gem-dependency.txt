@@ -1,13 +1,66 @@
 Gem Dependency
 ==============
 
-There is an issue affecting Rails 2.3.x apps from loading. If your Heroku app is affected you'll see an error like the following:
+There is an issue affecting Rails 2.3.x apps from loading. If your Heroku app is affected you'll see this output on push:
 
-    :::ruby
-    Missing the Rails gem. Please `gem install -v= x.x.x`, update your
-    RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do
-    have installed, or comment out RAILS_GEM_VERSION to use the latest version
-    installed.
+    :::term
+    $ git push heroku master
+    Counting objects: 60, done.
+    Delta compression using up to 2 threads.
+    Compressing objects: 100% (53/53), done.
+    Writing objects: 100% (60/60), 78.29 KiB, done.
+    Total 60 (delta 11), reused 0 (delta 0)
+
+    -----> Heroku receiving push
+    -----> Rails app detected
+
+    -----> Installing gem hobofields from http://rubygems.org
+           Successfully installed activesupport-3.0.0
+           Successfully installed builder-2.1.2
+           Successfully installed i18n-0.4.1
+           Successfully installed activemodel-3.0.0
+           Successfully installed rack-1.2.1
+           Successfully installed rack-test-0.5.4
+           Successfully installed rack-mount-0.6.13
+           Successfully installed tzinfo-0.3.23
+           Successfully installed erubis-2.6.6
+           Successfully installed actionpack-3.0.0
+           Successfully installed arel-1.0.1
+           Successfully installed activerecord-3.0.0
+           Successfully installed activeresource-3.0.0
+           Successfully installed polyglot-0.3.1
+           Successfully installed treetop-1.4.8
+           Successfully installed mail-2.2.6.1
+           Successfully installed actionmailer-3.0.0
+           Successfully installed thor-0.14.0
+           Successfully installed railties-3.0.0
+           Successfully installed rails-3.0.0
+           Successfully installed hobosupport-1.0.1
+           Successfully installed hobofields-1.0.1
+           22 gems installed
+
+    -----> Installing gem rails 2.3.5 from http://rubygems.org
+           Successfully installed activesupport-2.3.5
+           Successfully installed activerecord-2.3.5
+           Successfully installed actionpack-2.3.5
+           Successfully installed actionmailer-2.3.5
+           Successfully installed activeresource-2.3.5
+           Successfully installed rails-2.3.5
+           6 gems installed
+
+     ! We have detected a situation that may prevent your app from booting:
+     ! Multiple versions of rack detected: 1.2.1, 1.0.1
+
+     ! This issue is most often caused by one of your gems requiring rack.
+     ! To resolve, switch to bundler and push again:
+     ! http://docs.heroku.com/gem-dependency
+
+     ! Heroku push rejected
+
+    error: hooks/pre-receive exited with error code 1
+    To git@heroku.com:app.git
+     ! [remote rejected] master -> master (pre-receive hook declined)
+    error: failed to push some refs to 'git@heroku.com:app.git'
 
 Root Cause
 ----------
