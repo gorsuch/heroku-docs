@@ -88,11 +88,12 @@ If you're debugging this issue locally, you can reproduce it by making sure you'
 Resolution
 ----------
 
-If you're seeing this error in your app, there are two possible routes for resolving it. The recommended path is to switch to Bundler. Bundler has stabalized since the 1.0.0 release and is now out of beta.
-
 ### Use Bundler
 
-If you're on the [Bamboo stack](http://docs.heroku.com/bamboo), you can use [Bundler](http://docs.heroku.com/bundler), which was designed to conclusively solve this type of dependency resolution problem.
+If you’re on the [Bamboo stack](http://docs.heroku.com/bamboo), use [Bundler](http://docs.heroku.com/bundler), which was designed to conclusively solve this type of dependency resolution problem.  See [migrating to
++Bamboo](http://docs.heroku.com/bundler).
+
+If you’re on the [Aspen stack](http://docs.heroku.com/aspen), you need to either [migrate to the Bamboo stack](http://docs.heroku.com/bamboo) and use [Bundler](http://docs.heroku.com/bundler), or follow the instructions below.
 
 ### Ignore dependencies for selected gems
 
@@ -112,7 +113,3 @@ You can inspect the dependencies for any gem with:
     $ gem dependency warden
     Gem warden-0.10.7
       rack (>= 1.0.0, runtime)
-
-### For Aspen
-
-If you're on the [Aspen stack](http://docs.heroku.com/aspen), you need to either upgrade to our [Bamboo stack](http://docs.heroku.com/bamboo) and user [Bundler](http://docs.heroku.com/bundler) or follow the instructions for "Ignore dependencies for selected gems" above.
